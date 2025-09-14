@@ -1,0 +1,86 @@
+﻿@page
+@model ToDoList.Pages.Taskes.CreateModel
+@{
+}
+
+<br>
+<h2>New Task</h2>
+
+@* التحقق في حال كان عنا رسالة خطأ بعدم تعبئة الحقول *@
+
+@if(Model.errromasseg.Length >0)
+{
+	<div class="alert alert-warning alert-dismissible fade show" role="alert" >
+		<strong>@Model.errromasseg</strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+	</div>
+}
+
+
+<form method="post">
+<div class="row mb-3">
+	<label class="col-sm-3 col-form-label">Task Name</label>
+	<div class="col-sm-6">
+		<input type="text" class="form-control" name="task_name"
+		value="@Model.taskesInfo.task_name" />
+	</div>
+</div>
+
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Description</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="description" value="@Model.taskesInfo.description" />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Task Stute</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="task_status"
+			value="@Model.taskesInfo.task_status" />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Prority Setting</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="priority_setting"
+			value="@Model.taskesInfo.priority_setting" />
+		</div>
+	</div>
+
+
+	@*في حال كان رسالة نجاح وبالتالي التأكيد على صحة البيانات    *@
+
+	@if(Model.sucssesmaseg.Length >0)
+	{
+		<div class="row mb-3">
+		<div class="col-sm-9" >
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>@Model.sucssesmaseg</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+		</div>
+	}
+
+
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+		<button type="submit" class="btn btn-primary">Submet</button>
+
+		</div>
+
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" herf="/Taskes/Index" role="button">Cancel</a>
+
+		</div>
+
+
+	</div>
+	
+
+</form>

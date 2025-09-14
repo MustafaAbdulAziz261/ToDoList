@@ -1,0 +1,42 @@
+﻿@page
+@model ToDoList.Pages.Taskes.IndexModel
+@{
+}
+<br>
+<h2>list of Taskes</h2>
+<a class='btn btn-primary btn-sm' href='/Taskes/Create'>new Task</a>
+<table class="table">
+<thead>
+	<tr>
+		<th>ID</th>
+		<th>Task Name</th>
+		<th>Description</th>
+			<th>Task stute</th>
+			<th>prority setting</th>
+			<th>Created At</th>
+			<th>Action</th>
+
+		</tr>
+</thead>
+    <tbody>
+        @foreach (var task in Model.listTaskes)
+        {
+            <tr>
+                <td>@task.id</td>
+                <td>@task.task_name</td>
+                <td>@task.description</td>
+                <td>@task.task_status</td>
+                <td>@task.priority_setting</td>
+                <td>@task.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href='/Taskes/Edit?id=@task.id'>Edit</a>
+                    <a class="btn btn-danger btn-sm" href='/Taskes/Delete?id=@task.id'>Delet</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
